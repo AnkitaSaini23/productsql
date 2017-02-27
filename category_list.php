@@ -2,7 +2,7 @@
 require_once('database.php');
 
 // Get all categories
-$query = 'SELECT * FROM categories
+$query = 'SELECT * FROM categories_guitar1
                        ORDER BY categoryID';
 $statement = $db->prepare($query);
 $statement->execute();
@@ -30,7 +30,13 @@ $statement->closeCursor();
         </tr>
         
         <!-- add code for the rest of the table here -->
-    
+   <?php foreach($categories_guitar1 as $category) : ?>
+   <tr>
+   <td><?php echo $category('categoryName'); ?></td>
+   <td>delete</td>
+   </tr>
+   <?php endforeach; ?>
+
     </table>
 
     <h2>Add Category</h2>
